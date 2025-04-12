@@ -44,17 +44,20 @@
             margin-bottom: 15px;
         }
         header .links {
-            /* font-size: 1.2em;  Removed as size is now controlled by SVG */
             white-space: nowrap;
             padding-top: 5px; /* Optional: Adjust vertical alignment if needed */
             display: flex; /* Use flexbox for alignment */
-            gap: 15px; /* Space between icons */
+            align-items: center; /* Vertically align items in the middle */
+            gap: 15px; /* Space between items (button and icons) */
         }
         header .links a {
             color: #bbbbbb;
             text-decoration: none;
-            /* margin-left: 15px; Replaced by gap in parent */
-            display: inline-block; /* Needed for sizing */
+            display: inline-block; /* Needed for sizing/padding */
+            vertical-align: middle; /* Align icons nicely */
+        }
+         /* Default icon link styling */
+        header .links a:not(.portfolio-button) { /* Target only non-button links */
             line-height: 0; /* Prevent extra space around icons */
         }
         header .links a:hover {
@@ -65,9 +68,26 @@
             width: 24px; /* Adjust size as needed */
             height: 24px; /* Adjust size as needed */
             fill: currentColor; /* Inherit color from the parent <a> tag */
-            vertical-align: middle; /* Align icons nicely if needed */
+            vertical-align: middle; /* Align icons nicely */
         }
-        /* ----------------------------- */
+        /* --- Style for the Portfolio Button --- */
+        header .links a.portfolio-button {
+            padding: 6px 12px; /* Adjust padding for button size */
+            background-color: #333; /* Button background color */
+            color: #e0e0e0; /* Button text color */
+            border-radius: 4px; /* Rounded corners */
+            font-size: 0.9em; /* Adjust font size if needed */
+            font-weight: 500; /* Slightly bolder text */
+            line-height: 1.2; /* Ensure text displays correctly */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+        }
+        header .links a.portfolio-button:hover {
+            background-color: #555; /* Darker background on hover */
+            color: #ffffff; /* Lighter text on hover */
+            text-decoration: none; /* Ensure no underline on hover */
+        }
+        /* ------------------------------------ */
         h2 {
             color: #ffffff;
             margin-bottom: 20px;
@@ -152,7 +172,7 @@
             header {
                 flex-direction: column;
                 align-items: flex-start; /* Align start for column layout */
-             }
+            }
             header .intro {
                  flex-basis: auto;
                  margin-bottom: 20px;
@@ -162,11 +182,9 @@
                  align-self: flex-start;
                  margin-top: 10px;
                  /* gap: 15px; Inherited */
+                 flex-wrap: wrap; /* Allow items to wrap on small screens if needed */
             }
-            header .links a {
-                 /* margin-left: 0; Replaced by gap */
-                 /* margin-right: 15px; Replaced by gap */
-            }
+            /* No changes needed for links 'a' inside media query as gap handles spacing */
             #thoughts article {
                  flex-direction: column;
                  align-items: flex-start;
@@ -186,6 +204,7 @@
                 <p>If you want to get in touch, find me on <a href="mailto:michael.grigore@salt.bank">[michael.grigore@salt.bank]</a>.</p>
             </div>
             <div class="links">
+                <a href="https://mihaaaailai.github.io/Mihai.Grigore/" target="_blank" rel="noopener noreferrer" class="portfolio-button" title="Portfolio">Portfolio</a>
                 <a href="https://www.linkedin.com/in/mihai-grigore-ubi/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="linkedInIconTitle">
                         <title id="linkedInIconTitle">LinkedIn</title>
@@ -211,7 +230,7 @@
             <h2>Thoughts</h2>
             <article>
                  <a href="beyond-code-completion.html" style="text-decoration: none;"> <h3>Beyond Code Completion</h3>
-                </a>
+                 </a>
                 <span>Apr 12, 2025 &nearr;</span>
             </article>
          </section>
@@ -230,7 +249,7 @@
 
         <footer id="contact">
              <p>&copy; 2025 Michael Grigore</p> </footer>
-    </div>
+     </div>
 
-    </body>
+     </body>
 </html>
