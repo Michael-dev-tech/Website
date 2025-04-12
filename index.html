@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Grigore - Portfolio</title>
+    <style>
+        /* Basic CSS Styles - Dark Theme */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0;
+        }
+        header, section {
+            margin-bottom: 40px;
+            padding: 0;
+            border: none;
+            border-radius: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items to the top */
+            margin-bottom: 60px;
+        }
+        header .intro {
+            flex-basis: 75%;
+        }
+        header h1 {
+            margin: 0 0 15px 0;
+            font-size: 1.5em;
+            color: #ffffff;
+            text-align: left;
+        }
+        header p {
+            margin-bottom: 15px;
+        }
+        header .links {
+            /* font-size: 1.2em;  Removed as size is now controlled by SVG */
+            white-space: nowrap;
+            padding-top: 5px; /* Optional: Adjust vertical alignment if needed */
+            display: flex; /* Use flexbox for alignment */
+            gap: 15px; /* Space between icons */
+        }
+        header .links a {
+            color: #bbbbbb;
+            text-decoration: none;
+            /* margin-left: 15px; Replaced by gap in parent */
+            display: inline-block; /* Needed for sizing */
+            line-height: 0; /* Prevent extra space around icons */
+        }
+        header .links a:hover {
+            color: #ffffff;
+        }
+        /* --- Style for the SVG icons --- */
+        header .links a svg {
+            width: 24px; /* Adjust size as needed */
+            height: 24px; /* Adjust size as needed */
+            fill: currentColor; /* Inherit color from the parent <a> tag */
+            vertical-align: middle; /* Align icons nicely if needed */
+        }
+        /* ----------------------------- */
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #f0f0f0;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+        article {
+            margin-bottom: 30px;
+        }
+        article p {
+            color: #aaaaaa;
+            font-size: 0.95em;
+            margin-top: 5px;
+        }
+        a {
+            color: #88aaff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        #thoughts article {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        #thoughts article h3 {
+            margin: 0;
+            color: #e0e0e0;
+        }
+        /* Keep the link style for the thought title */
+        #thoughts article a {
+             color: inherit; /* Make link color same as h3 */
+        }
+        #thoughts article a h3:hover {
+             text-decoration: underline;
+             color: #ffffff; /* Optional: change color on hover */
+        }
+        #thoughts article span {
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #777;
+        }
+        #projects article h3 {
+            font-family: monospace;
+            font-size: 1.1em;
+            color: #cccccc;
+        }
+        #projects article h3 a {
+            color: inherit;
+        }
+        #projects article h3 a:hover {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        #contact ul { /* Kept in case you add a list later */
+            list-style: none;
+            padding: 0;
+        }
+        #contact li { /* Kept in case you add a list later */
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #777;
+            background-color: transparent;
+        }
+        @media (max-width: 600px) {
+            body { padding: 15px; }
+            .container { margin: 20px auto; }
+            header {
+                flex-direction: column;
+                align-items: flex-start; /* Align start for column layout */
+             }
+            header .intro {
+                 flex-basis: auto;
+                 margin-bottom: 20px;
+                 width: 100%; /* Ensure intro takes full width */
+            }
+            header .links {
+                 align-self: flex-start;
+                 margin-top: 10px;
+                 /* gap: 15px; Inherited */
+            }
+            header .links a {
+                 /* margin-left: 0; Replaced by gap */
+                 /* margin-right: 15px; Replaced by gap */
+            }
+            #thoughts article {
+                 flex-direction: column;
+                 align-items: flex-start;
+             }
+            #thoughts article span { margin-top: 5px; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="intro">
+                <h1>Michael Grigore</h1>
+                <p>Hey, I'm Michael — a system engineer building things before robots make me irrelevant.</p>
+                <p>I'm interested in reactive systems, distributed computing, and building products that help developers build better products. I also know way too much about VB and perf tools. </p>
+                <p>If you want to get in touch, find me on <a href="mailto:michael.grigore@salt.bank">[michael.grigore@salt.bank]</a>.</p>
+            </div>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/mihai-grigore-ubi/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="linkedInIconTitle">
+                        <title id="linkedInIconTitle">LinkedIn</title>
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM6 9H2V21h4V9zM4 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"></path>
+                    </svg>
+                </a>
+                <a href="https://github.com/mihaaaailai" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="githubIconTitle">
+                         <title id="githubIconTitle">GitHub</title>
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+                    </svg>
+                </a>
+                <a href="mailto:michael.grigore@salt.bank" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="emailIconTitle">
+                        <title id="emailIconTitle">Email</title>
+                        <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6ZM20 6L12 11L4 6H20ZM20 18H4V8L12 13L20 8V18Z"></path>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <section id="thoughts">
+            <h2>Thoughts</h2>
+            <article>
+                 <a href="beyond-code-completion.html" style="text-decoration: none;"> <h3>Beyond Code Completion</h3>
+                </a>
+                <span>Apr 12, 2025 &nearr;</span>
+            </article>
+         </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <article>
+                <h3><a href="https://github.com/mihaaaailai/ArduCar" target="_blank" rel="noopener noreferrer">ArduCar</a></h3>
+                <p>This Arduino project controls a 4-wheel robot that autonomously navigates and avoids obstacles using an ultrasonic sensor mounted on a servo motor to detect nearby objects, reverse, scan left-right, and turn towards the clear direction before continuing.</p>
+            </article>
+            <article>
+                <h3><a href="https://github.com/mihaaaailai/DeepSeek_local" target="_blank" rel="noopener noreferrer">Local_LLM</a></h3>
+                <p>This guide details the system requirements, installation steps (using Conda and pip), configuration, basic usage (Python API and CLI), optimization techniques (like 4-bit quantization), and troubleshooting for deploying the DeepSeek-7B model locally.</p>
+            </article>
+        </section>
+
+        <footer id="contact">
+             <p>&copy; 2025 Michael Grigore</p> </footer>
+    </div>
+
+    </body>
+</html>
