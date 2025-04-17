@@ -121,7 +121,11 @@
             align-items: center;
             border-bottom: 1px solid #333;
             padding-bottom: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Keep separation between articles */
+        }
+        /* Specific margin adjustment for the last article in #thoughts to align with section padding */
+        #thoughts article:last-child {
+             margin-bottom: 0; /* Remove bottom margin only for the last article */
         }
         #thoughts article h3 {
             margin: 0;
@@ -130,8 +134,12 @@
         /* Keep the link style for the thought title */
         #thoughts article a {
              color: inherit; /* Make link color same as h3 */
+             text-decoration: none; /* Ensure no underline on the link itself */
         }
-        #thoughts article a h3:hover {
+         #thoughts article a h3 {
+             text-decoration: none; /* Ensure h3 has no underline by default */
+         }
+        #thoughts article a:hover h3 { /* Underline h3 text ONLY when link is hovered */
              text-decoration: underline;
              color: #ffffff; /* Optional: change color on hover */
         }
@@ -139,6 +147,8 @@
             font-family: monospace;
             font-size: 0.9em;
             color: #777;
+            white-space: nowrap; /* Prevent date from wrapping */
+            margin-left: 15px; /* Add some space between title and date */
         }
         #projects article h3 {
             font-family: monospace;
@@ -189,7 +199,10 @@
                  flex-direction: column;
                  align-items: flex-start;
              }
-            #thoughts article span { margin-top: 5px; }
+            #thoughts article span {
+                margin-top: 5px;
+                margin-left: 0; /* Remove left margin in column layout */
+            }
         }
 
     </style>
@@ -234,7 +247,13 @@
                  </a>
                 <span>Apr 12, 2025 &nearr;</span>
             </article>
-         </section>
+            <article>
+                <a href="fedora-42-release.html" style="text-decoration: none;">
+                    <h3>Fedora Linux 42 Has Arrived! What's New?</h3>
+                </a>
+                <span>Apr 17, 2025 &nearr;</span> 
+            </article>
+           </section>
 
         <section id="projects">
             <h2>Projects</h2>
