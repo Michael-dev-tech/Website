@@ -13,7 +13,7 @@
 * **Projects Section:** Showcases selected projects with descriptions and links to their external repositories (GitHub).
 * **Internal Styling:** All CSS is contained within `<style>` tags in the `<head>` section of the HTML file.
 
-## File Structure
+## File Structure:
 
 The entire website (as provided) consists of a single HTML file (likely intended to be named `index.html`).
 
