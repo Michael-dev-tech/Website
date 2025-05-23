@@ -202,6 +202,67 @@
                 margin-left: 0; /* Remove left margin in column layout */
             }
         }
+
+        /* --- Light Theme --- */
+        body.light-theme {
+            background-color: #ffffff;
+            color: #333333;
+        }
+        body.light-theme header h1 {
+            color: #000000;
+        }
+        body.light-theme h2 {
+            color: #000000;
+            border-bottom-color: #dddddd;
+        }
+        body.light-theme h3 {
+            color: #111111;
+        }
+        body.light-theme article p {
+            color: #555555;
+        }
+        body.light-theme a {
+            color: #0066cc;
+        }
+        body.light-theme a:hover {
+            color: #004499;
+        }
+        body.light-theme #thoughts article {
+            border-bottom-color: #eeeeee;
+        }
+        body.light-theme #thoughts article a h3 { /* Ensure specificity for thought titles */
+            color: #333333;
+        }
+        body.light-theme #thoughts article a:hover h3 {
+            color: #000000;
+        }
+        body.light-theme #thoughts article span {
+            color: #888888;
+        }
+        body.light-theme #projects article h3 {
+            color: #444444;
+        }
+        body.light-theme #projects article h3 a:hover { /* Ensure specificity for project links */
+            color: #000000;
+        }
+        body.light-theme footer {
+            color: #888888;
+        }
+        body.light-theme header .links a { /* General link style in header */
+            color: #555555;
+        }
+        body.light-theme header .links a:hover { /* General link hover in header */
+            color: #000000;
+        }
+        /* This includes the new theme-toggle-button as well as existing portfolio buttons */
+        body.light-theme header .links .portfolio-button {
+            background-color: #eeeeee;
+            color: #333333;
+        }
+        body.light-theme header .links .portfolio-button:hover {
+            background-color: #dddddd;
+            color: #000000;
+        }
     </style>
 </head>
 <body>
@@ -216,6 +277,7 @@
             <div class="links">
                 <a href="https://mihaaaailai.github.io/Mihai.Grigore/" target="_blank" rel="noopener noreferrer" class="portfolio-button" title="Portfolio">Portfolio</a>
                 <a href="https://mihaaaailai.github.io/aboutme/" target="_blank" rel="noopener noreferrer" class="portfolio-button" title="About Me">About Me</a>
+                <button id="theme-toggle-button" class="portfolio-button">White Mode</button>
                 <a href="https://www.linkedin.com/in/mihai-grigore-ubi/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="linkedInIconTitle">
                         <title id="linkedInIconTitle">LinkedIn</title>
@@ -275,5 +337,39 @@
             <p>&copy; 2025 Michael Grigore</p>
         </footer>
     </div>
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle-button');
+        const body = document.body;
+
+        // Function to apply theme and update button
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                body.classList.add('light-theme');
+                themeToggleButton.textContent = 'Dark Mode';
+            } else {
+                body.classList.remove('light-theme');
+                themeToggleButton.textContent = 'White Mode';
+            }
+        }
+
+        // On page load, check localStorage and apply saved theme
+        const savedTheme = localStorage.getItem('themePreference');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else {
+            applyTheme('dark'); // Default to dark theme if nothing is saved
+        }
+
+        themeToggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            if (body.classList.contains('light-theme')) {
+                localStorage.setItem('themePreference', 'light');
+                themeToggleButton.textContent = 'Dark Mode'; // Ensure button text is updated
+            } else {
+                localStorage.setItem('themePreference', 'dark');
+                themeToggleButton.textContent = 'White Mode'; // Ensure button text is updated
+            }
+        });
+    </script>
 </body>
 </html>
