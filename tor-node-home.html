@@ -1,212 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Run a Tor Relay at Home – Step‑by‑Step Guide</title>
-<meta name="description" content="Step-by-step guide to run a non-exit Tor relay at home: requirements, installation, configuration, bandwidth limits, security, monitoring.">
-<style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 30px 20px;
-        background:#000;
-        color:#ddd;
-        max-width: 800px;
-    }
-    h1, h2, h3 { color:#fff; line-height:1.25; }
-    a { color:#88aaff; }
-    a:hover { text-decoration: underline; }
-    code, pre {
-        background:#111;
-        color:#eee;
-        padding:2px 4px;
-        border-radius:4px;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-        font-size: 0.9em;
-    }
-    pre { padding:12px; overflow:auto; }
-    blockquote {
-        border-left:3px solid #333;
-        margin:1.2em 0;
-        padding:0.6em 1em;
-        background:#0f0f0f;
-    }
-    ul, ol { padding-left: 1.25em; }
-    .warn {
-        border:1px solid #aa6600;
-        background:#201200;
-        padding:10px 14px;
-        border-radius:6px;
-        margin:20px 0;
-    }
-    .tip {
-        border:1px solid #225588;
-        background:#0d1a26;
-        padding:10px 14px;
-        border-radius:6px;
-        margin:20px 0;
-    }
-    details summary { cursor:pointer; }
-    footer {
-        margin-top:60px;
-        font-size:0.85em;
-        text-align:center;
-        color:#666;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run a Tor Relay at Home – Step-by-Step Guide - Michael Grigore</title>
+    <style>
+        /* Basic CSS Styles - Dark Theme */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        a {
+            color: #88aaff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Content Styles */
+        .article-content {
+            padding: 20px 0;
+            margin-top: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .article-content h1 {
+            color: #ffffff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.3em;
+            margin-top: 0;
+            margin-bottom: 1em;
+            font-size: 1.8em;
+        }
+        .article-content h2 {
+            color: #ffffff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.3em;
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            font-size: 1.4em;
+        }
+        .article-content h3 {
+            color: #ffffff;
+            margin-top: 1.6em;
+            margin-bottom: 0.9em;
+            font-size: 1.15em;
+        }
+        .article-content p {
+            margin-bottom: 1em;
+            color: #aaaaaa;
+        }
+        .article-content ul {
+            padding-left: 2em;
+            margin-bottom: 1em;
+            list-style: disc;
+        }
+        .article-content ol {
+            padding-left: 2em;
+            margin-bottom: 1em;
+        }
+        .article-content li {
+            margin-bottom: 0.5em;
+            color: #aaaaaa;
+        }
+        .article-content strong {
+            color: #f0f0f0;
+        }
+        .article-content em {
+            font-style: italic;
+            color: #cccccc;
+        }
+
+        /* Style for code blocks / preformatted text */
+        .article-content pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            margin: 1.5em 0;
+            border-radius: 5px;
+            color: #c0c0c0;
+            font-family: monospace;
+            line-height: 1.4;
+            overflow-x: auto;
+            white-space: pre;
+            border: 1px solid #333;
+        }
+
+        /* (No table in this article, but keeping comparison-table style for consistency) */
+        .comparison-table {
+            width: 100%;
+            margin: 1.5em 0;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #444;
+            padding: 10px 12px;
+            text-align: left;
+            color: #c0c0c0;
+        }
+        .comparison-table th {
+            background-color: #2a5298;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .comparison-table tr:nth-child(even) td {
+            background-color: #1a1a1a;
+        }
+        .comparison-table td:first-child {
+            font-weight: 500;
+            color: #d0d0d0;
+        }
+
+        /* Back link */
+        .back-link {
+            display: block;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+            color: #bbbbbb;
+        }
+        .back-link:hover {
+            color: #ffffff;
+        }
+
+        /* Simple callout styles (reuse pre styling philosophy) */
+        .callout-warn {
+            border: 1px solid #aa6600;
+            background: #201200;
+            padding: 14px 16px;
+            border-radius: 5px;
+            margin: 1.6em 0;
+            color: #d7c4aa;
+        }
+        .callout-tip {
+            border: 1px solid #225588;
+            background: #0d1a26;
+            padding: 14px 16px;
+            border-radius: 5px;
+            margin: 1.6em 0;
+            color: #c1d7ef;
+        }
+
+        details {
+            background: #111111;
+            border: 1px solid #222;
+            border-radius: 5px;
+            padding: 0.75em 1em;
+            margin: 1.2em 0;
+        }
+        details summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-<header>
-    <h1>How to Run a Tor Relay at Home – Step‑by‑Step Guide</h1>
-    <p><strong>Date:</strong> Jul 19, 2025 • <strong>Author:</strong> Michael Grigore</p>
-</header>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
 
-<p>This guide walks you through setting up a <strong>Tor relay (non‑exit)</strong> on your home network. A relay increases Tor’s capacity and resilience without the higher legal exposure of an exit node.</p>
+        <div class="article-content">
+            <h1>How to Run a Tor Relay at Home – Step-by-Step Guide</h1>
+            <p><em>Jul 19, 2025</em></p>
 
-<div class="warn">
-    <strong>Important:</strong> Start with a <em>non-exit (middle/guard) relay</em>, not an exit node. Exit nodes make the final connection to the clear Internet; any abuse may appear to originate from your IP. Middle relays only pass encrypted Tor traffic between nodes—much lower risk. Always read your ISP’s Terms of Service first.
-</div>
+            <p>This guide walks you through setting up a <strong>non-exit Tor relay</strong> on your home network. A relay adds capacity and resilience to the Tor network without the higher exposure of an exit node.</p>
 
-<h2>1. Requirements & Considerations</h2>
-<ul>
-    <li><strong>Hardware:</strong> Old mini PC, Raspberry Pi 3/4, home server, or a small VM.</li>
-    <li><strong>Uptime:</strong> The more continuous, the more useful. Aim for 24/7.</li>
-    <li><strong>Bandwidth:</strong> A few Mbps up/down minimum. You’ll set soft limits.</li>
-    <li><strong>OS Example:</strong> Debian / Ubuntu / Fedora (examples use Debian/Ubuntu commands).</li>
-    <li><strong>Ports:</strong> Default ORPort 9001 (TCP). DirPort (9030) is optional for a basic relay.</li>
-</ul>
+            <div class="callout-warn">
+                <strong>Important:</strong> Start with a <em>middle (non-exit) relay</em>. Exit nodes connect to the public Internet; abuse can appear to come from your IP. Middle relays only pass encrypted Tor traffic between Tor nodes. Review your ISP’s Terms of Service before proceeding.
+            </div>
 
-<h2>2. Update the System</h2>
-<pre><code>sudo apt update
+            <h2>1. Requirements & Considerations</h2>
+            <ul>
+                <li><strong>Hardware:</strong> Old mini PC, Raspberry Pi 3/4, home server, or a small VM.</li>
+                <li><strong>Uptime:</strong> The more continuous the better (aim for 24/7).</li>
+                <li><strong>Bandwidth:</strong> A few Mbps up/down minimum. You’ll set safe limits.</li>
+                <li><strong>OS:</strong> Debian / Ubuntu / Fedora (examples use Debian/Ubuntu commands).</li>
+                <li><strong>Ports:</strong> ORPort 9001 TCP (DirPort optional, usually 9030 – we skip it for simplicity).</li>
+            </ul>
+
+            <h2>2. Update the System</h2>
+            <pre><code>sudo apt update
 sudo apt upgrade -y
 </code></pre>
 
-<h2>3. Add the Official Tor Project Repository (faster security updates)</h2>
-<p>You can use the distro package, but the Tor Project repo often delivers updates sooner.</p>
-<pre><code>sudo apt install -y gnupg2 apt-transport-https
+            <h2>3. Add the Official Tor Project Repository</h2>
+            <p>You can use the distro’s default Tor, but the Tor Project repo typically ships security updates sooner.</p>
+            <pre><code>sudo apt install -y gnupg2 apt-transport-https
 curl https://deb.torproject.org/torproject.org/static/keys/torproject-keyring.gpg | \
-    gpg --dearmor | sudo tee /usr/share/keyrings/tor-archive-keyring.gpg >/dev/null
+  gpg --dearmor | sudo tee /usr/share/keyrings/tor-archive-keyring.gpg >/dev/null
 
-# Add the source list
 echo "deb [signed-by=/usr/share/keyrings/tor-archive-keyring.gpg] \
 https://deb.torproject.org/torproject.org $(lsb_release -cs) main" | \
-sudo tee /etc/apt/sources.list.d/tor.list
+  sudo tee /etc/apt/sources.list.d/tor.list
 
 sudo apt update
 sudo apt install -y tor deb.torproject.org-keyring
 </code></pre>
 
-<h2>4. Locate the Configuration File</h2>
-<p>Main config: <code>/etc/tor/torrc</code>. Back it up first:</p>
-<pre><code>sudo cp /etc/tor/torrc /etc/tor/torrc.backup.$(date +%Y%m%d)
+            <h2>4. Backup and Edit the Config</h2>
+            <p>Main config lives at <code>/etc/tor/torrc</code>. Backup first, then edit:</p>
+            <pre><code>sudo cp /etc/tor/torrc /etc/tor/torrc.backup.$(date +%Y%m%d)
+sudo nano /etc/tor/torrc
 </code></pre>
 
-<h2>5. Basic Config for a Middle Relay</h2>
-<p>Edit the file:</p>
-<pre><code>sudo nano /etc/tor/torrc
-</code></pre>
-
-<p>Add / adjust these lines:</p>
-<pre><code>Nickname MichaelHomeRelay
+            <h2>5. Minimal Middle Relay Config</h2>
+            <pre><code>Nickname MichaelHomeRelay
 ContactInfo michael.grigore@example (PGP key optional)
 ORPort 9001
 ExitRelay 0
 SocksPort 0
 DirPort 0
 
-# Bandwidth limits (pick realistic values for your link):
-RelayBandwidthRate 4 MB    # sustained (e.g. 4 MB/s ≈ 32 Mbps)
-RelayBandwidthBurst 8 MB   # short burst
+# Bandwidth limits (adjust for your connection):
+RelayBandwidthRate 4 MB     # sustained (4 MB/s ≈ 32 Mbps)
+RelayBandwidthBurst 8 MB    # short burst
 
-# (Optional) If Tor mis-detects your public IP:
+# If auto-detection fails:
 # Address 203.0.113.45
 
-# Logging (minimal):
 Log notice file /var/log/tor/notices.log
 </code></pre>
 
-<h3>Quick Explanations</h3>
-<ul>
-    <li><code>Nickname</code>: Public alias for the relay.</li>
-    <li><code>ExitRelay 0</code>: Ensures it is <em>not</em> an exit node.</li>
-    <li><code>SocksPort 0</code>: Disables local client proxying; this instance is only a relay.</li>
-    <li><code>RelayBandwidthRate/Burst</code>: Protects your connection; adjust after observing usage.</li>
-</ul>
+            <h3>Key Lines Explained</h3>
+            <ul>
+                <li><code>ExitRelay 0</code> — ensures this is not an exit node.</li>
+                <li><code>SocksPort 0</code> — disables client proxy; this instance just relays.</li>
+                <li><code>RelayBandwidthRate/Burst</code> — protects your upstream capacity.</li>
+            </ul>
 
-<h2>6. Router Port Forwarding</h2>
-<p>If you are behind NAT (typical at home), forward the chosen <code>ORPort</code> (e.g. 9001 TCP) to the machine’s internal IP (e.g. 192.168.1.50). A DirPort is optional for a basic relay. Restart Tor afterward.</p>
+            <h2>6. Router Port Forwarding</h2>
+            <p>Forward TCP port <code>9001</code> (or the ORPort you chose) from the router to the relay’s LAN IP (e.g. <code>192.168.1.50</code>). DirPort is optional—skip it for a basic relay.</p>
 
-<h2>7. Restart Tor</h2>
-<pre><code>sudo systemctl restart tor
+            <h2>7. Restart Tor</h2>
+            <pre><code>sudo systemctl restart tor
 sudo systemctl status tor --no-pager
 </code></pre>
 
-<h2>8. Watch the Logs</h2>
-<pre><code>tail -f /var/log/tor/notices.log
+            <h2>8. Watch the Logs</h2>
+            <pre><code>tail -f /var/log/tor/notices.log
 </code></pre>
-<p>Look for: <code>Self-testing indicates your ORPort is reachable</code>. If you don’t see it after ~20–30 minutes, re-check firewall/NAT.</p>
+            <p>Look for: <code>Self-testing indicates your ORPort is reachable</code>. If it doesn’t appear after ~20–30 minutes, re-check firewall/NAT/port forward.</p>
 
-<h2>9. Firewall (UFW Example)</h2>
-<pre><code>sudo ufw allow 9001/tcp
+            <h2>9. (Optional) Firewall Allow</h2>
+            <pre><code>sudo ufw allow 9001/tcp
 sudo ufw reload
 sudo ufw status
 </code></pre>
 
-<h2>10. Monitoring</h2>
-<ul>
-    <li>Once reachable, your relay appears in the Tor consensus after a few hours.</li>
-    <li>Search for your <code>Nickname</code> at: <em>https://metrics.torproject.org/rs.html</em></li>
-    <li>Traffic graphs populate after you accumulate uptime.</li>
-</ul>
+            <h2>10. Monitoring</h2>
+            <ul>
+                <li>After a few hours your relay appears in the Tor consensus.</li>
+                <li>Search its <code>Nickname</code> here: <em>https://metrics.torproject.org/rs.html</em></li>
+                <li>Traffic graphs show up as you accumulate uptime.</li>
+            </ul>
 
-<h2>11. Updates & Security</h2>
-<pre><code>sudo apt update
+            <h2>11. Keep It Updated</h2>
+            <pre><code>sudo apt update
 sudo apt install tor
 </code></pre>
-<p>Run periodically (cron or a systemd timer) to apply security patches.</p>
+            <p>Run periodically (cron/systemd timer) for security updates.</p>
 
-<div class="tip">
-    <strong>Tip:</strong> If your public IP changes frequently, that’s okay for a middle relay. Longer, stable uptime on a consistent IP helps Tor potentially select you as a guard over time.
-</div>
+            <div class="callout-tip">
+                <strong>Tip:</strong> Dynamic IP? OK for a middle relay. Stable, long uptime on one IP helps if Tor later flags you as a quality guard.
+            </div>
 
-<h2>12. Adjust Bandwidth Later</h2>
-<p>After you gauge real usage, tune the values:</p>
-<pre><code># Example reduction
+            <h2>12. Adjust Bandwidth Later</h2>
+            <pre><code># Example lower values:
 RelayBandwidthRate 2 MB
 RelayBandwidthBurst 4 MB
 </code></pre>
 
-<h2>13. Why Avoid Running an Exit (Initially)</h2>
-<p>Exit nodes invite possible abuse complaints (DMCA, etc.) since they connect to the public Internet. They require careful legal awareness, logging policies, and often dedicated infrastructure. Stick to a non-exit relay first.</p>
+            <h2>13. Why Not an Exit (Yet)</h2>
+            <p>Exit nodes carry cleartext egress traffic and can attract abuse complaints (DMCA, etc.). They require legal awareness, sometimes separate hosting, and tighter operational practices. Start with a middle relay.</p>
 
-<h2>14. Disable / Remove the Relay</h2>
-<pre><code>sudo systemctl stop tor
+            <h2>14. Disable / Remove</h2>
+            <pre><code>sudo systemctl stop tor
 sudo apt purge tor -y
 sudo rm -rf /var/lib/tor
 </code></pre>
 
-<h2>FAQ</h2>
-<details>
-    <summary><strong>Will it slow down my Internet?</strong></summary>
-    <p>Keep <code>RelayBandwidthRate</code> to a reasonable fraction (e.g. 30–40%) of your upload; you shouldn’t notice much impact.</p>
-</details>
-<details>
-    <summary><strong>Can my ISP complain?</strong></summary>
-    <p>Unlikely for a middle relay, but read your Terms of Service and monitor for any notifications during the first months.</p>
-</details>
-<details>
-    <summary><strong>Can I run this on a Raspberry Pi?</strong></summary>
-    <p>Yes. Use a good quality power supply and storage (reliable SD card or external SSD). A Pi 3B+ or 4 is recommended with cooling.</p>
-</details>
+            <h2>FAQ</h2>
+            <details>
+                <summary><strong>Will it slow my Internet?</strong></summary>
+                <p>Minimal impact if <code>RelayBandwidthRate</code> is ~30–40% of your upstream.</p>
+            </details>
+            <details>
+                <summary><strong>Can my ISP complain?</strong></summary>
+                <p>Rare for a middle relay. Still, read your Terms and watch for notices initially.</p>
+            </details>
+            <details>
+                <summary><strong>Can I use a Raspberry Pi?</strong></summary>
+                <p>Yes. Use a reliable power supply and storage (good SD card or SSD). Pi 3B+ or 4 with cooling is recommended.</p>
+            </details>
 
-<hr>
-<p><em>This guide is for educational purposes. Always comply with local laws and your ISP’s policy.</em></p>
+            <hr>
+            <p><em>Educational purposes only. Always comply with local laws and your ISP’s policy.</em></p>
 
-<footer>
-    &copy; 2025 Michael Grigore
-</footer>
+            <p>Cheers,<br>Michael</p>
+        </div>
+
+        <footer style="text-align: center; margin-top: 60px; font-size: 0.9em; color: #777;">
+            <p>&copy; 2025 Michael Grigore</p>
+        </footer>
+    </div>
 </body>
 </html>
-
