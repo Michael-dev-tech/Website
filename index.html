@@ -28,7 +28,7 @@
         header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; /* Align items to the top */
+            align-items: flex-start;
             margin-bottom: 60px;
         }
         header .intro {
@@ -45,49 +45,45 @@
         }
         header .links {
             white-space: nowrap;
-            padding-top: 5px; /* Optional: Adjust vertical alignment if needed */
-            display: flex; /* Use flexbox for alignment */
-            align-items: center; /* Vertically align items in the middle */
-            gap: 15px; /* Space between items (buttons and icons) */
+            padding-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         header .links a {
             color: #bbbbbb;
             text-decoration: none;
-            display: inline-block; /* Needed for sizing/padding */
-            vertical-align: middle; /* Align icons nicely */
+            display: inline-block;
+            vertical-align: middle;
         }
-        /* Default icon link styling */
-        header .links a:not(.portfolio-button) { /* Target only non-button links */
-            line-height: 0; /* Prevent extra space around icons */
+        header .links a:not(.portfolio-button) {
+            line-height: 0;
         }
         header .links a:hover {
             color: #ffffff;
         }
-        /* --- Style for the SVG icons --- */
         header .links a svg {
-            width: 24px; /* Adjust size as needed */
-            height: 24px; /* Adjust size as needed */
-            fill: currentColor; /* Inherit color from the parent <a> tag */
-            vertical-align: middle; /* Align icons nicely */
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            vertical-align: middle;
         }
-        /* --- Style for the Portfolio/About Me Buttons --- */
         header .links a.portfolio-button {
-            padding: 6px 12px; /* Adjust padding for button size */
-            background-color: #333; /* Button background color */
-            color: #e0e0e0; /* Button text color */
-            border-radius: 4px; /* Rounded corners */
-            font-size: 0.9em; /* Adjust font size if needed */
-            font-weight: 500; /* Slightly bolder text */
-            line-height: 1.2; /* Ensure text displays correctly */
-            text-decoration: none; /* Remove underline */
-            transition: background-color 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+            padding: 6px 12px;
+            background-color: #333;
+            color: #e0e0e0;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+            line-height: 1.2;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         header .links a.portfolio-button:hover {
-            background-color: #555; /* Darker background on hover */
-            color: #ffffff; /* Lighter text on hover */
-            text-decoration: none; /* Ensure no underline on hover */
+            background-color: #555;
+            color: #ffffff;
+            text-decoration: none;
         }
-        /* ------------------------------------ */
         h2 {
             color: #ffffff;
             margin-bottom: 20px;
@@ -121,34 +117,32 @@
             align-items: center;
             border-bottom: 1px solid #333;
             padding-bottom: 15px;
-            margin-bottom: 15px; /* Keep separation between articles */
+            margin-bottom: 15px;
         }
-        /* Specific margin adjustment for the last article in #thoughts to align with section padding */
         #thoughts article:last-child {
-            margin-bottom: 0; /* Remove bottom margin only for the last article */
+            margin-bottom: 0;
         }
         #thoughts article h3 {
             margin: 0;
             color: #e0e0e0;
         }
-        /* Keep the link style for the thought title */
         #thoughts article a {
-            color: inherit; /* Make link color same as h3 */
-            text-decoration: none; /* Ensure no underline on the link itself */
+            color: inherit;
+            text-decoration: none;
         }
         #thoughts article a h3 {
-            text-decoration: none; /* Ensure h3 has no underline by default */
+            text-decoration: none;
         }
-        #thoughts article a:hover h3 { /* Underline h3 text ONLY when link is hovered */
+        #thoughts article a:hover h3 {
             text-decoration: underline;
-            color: #ffffff; /* Optional: change color on hover */
+            color: #ffffff;
         }
         #thoughts article span {
             font-family: monospace;
             font-size: 0.9em;
             color: #777;
-            white-space: nowrap; /* Prevent date from wrapping */
-            margin-left: 15px; /* Add some space between title and date */
+            white-space: nowrap;
+            margin-left: 15px;
         }
         #projects article h3 {
             font-family: monospace;
@@ -162,11 +156,11 @@
             text-decoration: none;
             color: #ffffff;
         }
-        #contact ul { /* Kept in case you add a list later */
+        #contact ul {
             list-style: none;
             padding: 0;
         }
-        #contact li { /* Kept in case you add a list later */
+        #contact li {
             margin-bottom: 10px;
         }
         footer {
@@ -174,24 +168,24 @@
             margin-top: 60px;
             font-size: 0.9em;
             color: #777;
-            Background-color: transparent;
+            background-color: transparent;
         }
         @media (max-width: 600px) {
             body { padding: 15px; }
             .container { margin: 20px auto; }
             header {
                 flex-direction: column;
-                align-items: flex-start; /* Align start for column layout */
+                align-items: flex-start;
             }
             header .intro {
                 flex-basis: auto;
                 margin-bottom: 20px;
-                width: 100%; /* Ensure intro takes full width */
+                width: 100%;
             }
             header .links {
                 align-self: flex-start;
                 margin-top: 10px;
-                flex-wrap: wrap; /* Allow items to wrap on small screens if needed */
+                flex-wrap: wrap;
             }
             #thoughts article {
                 flex-direction: column;
@@ -199,69 +193,8 @@
             }
             #thoughts article span {
                 margin-top: 5px;
-                margin-left: 0; /* Remove left margin in column layout */
+                margin-left: 0;
             }
-        }
-
-        /* --- Light Theme --- */
-        body.light-theme {
-            background-color: #ffffff;
-            color: #333333;
-        }
-        body.light-theme header h1 {
-            color: #000000;
-        }
-        body.light-theme h2 {
-            color: #000000;
-            border-bottom-color: #dddddd;
-        }
-        body.light-theme h3 {
-            color: #111111;
-        }
-        body.light-theme article p {
-            color: #555555;
-        }
-        body.light-theme a {
-            color: #0066cc;
-        }
-        body.light-theme a:hover {
-            color: #004499;
-        }
-        body.light-theme #thoughts article {
-            border-bottom-color: #eeeeee;
-        }
-        body.light-theme #thoughts article a h3 { /* Ensure specificity for thought titles */
-            color: #333333;
-        }
-        body.light-theme #thoughts article a:hover h3 {
-            color: #000000;
-        }
-        body.light-theme #thoughts article span {
-            color: #888888;
-        }
-        body.light-theme #projects article h3 {
-            color: #444444;
-        }
-        body.light-theme #projects article h3 a:hover { /* Ensure specificity for project links */
-            color: #000000;
-        }
-        body.light-theme footer {
-            color: #888888;
-        }
-        body.light-theme header .links a { /* General link style in header */
-            color: #555555;
-        }
-        body.light-theme header .links a:hover { /* General link hover in header */
-            color: #000000;
-        }
-        /* This includes the new theme-toggle-button as well as existing portfolio buttons */
-        body.light-theme header .links .portfolio-button {
-            background-color: #eeeeee;
-            color: #333333;
-        }
-        body.light-theme header .links .portfolio-button:hover {
-            background-color: #dddddd;
-            color: #000000;
         }
     </style>
 </head>
@@ -272,12 +205,10 @@
                 <h1>Michael Grigore</h1>
                 <p>Hey, I'm Michael — a system engineer building things before robots make me irrelevant.</p>
                 <p>I'm interested in reactive systems, distributed computing, and building products that help developers build better products. I also know way too much about VB and perf tools.</p>
-                
             </div>
             <div class="links">
                 <a href="https://mihaaaailai.github.io/Mihai.Grigore/" target="_blank" rel="noopener noreferrer" class="portfolio-button" title="Portfolio">Portfolio</a>
                 <a href="https://mihaaaailai.github.io/aboutme/" target="_blank" rel="noopener noreferrer" class="portfolio-button" title="About Me">About Me</a>
-                <button id="theme-toggle-button" class="portfolio-button">White Mode</button>
                 <a href="https://www.linkedin.com/in/mihai-grigore-ubi/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="linkedInIconTitle">
                         <title id="linkedInIconTitle">LinkedIn</title>
@@ -310,8 +241,7 @@
             <article>
                 <a href="fedora-42-release.html" style="text-decoration: none;">
                     <h3>Fedora Linux 42 Has Arrived! What's New?</h3>
-                </a
-                ><span>Apr 17, 2025 &nearr;</span>
+                </a><span>Apr 17, 2025 &nearr;</span>
             </article>
             <article>
                 <a href="greensock-gsap-is-now-free.html" style="text-decoration: none;">
@@ -343,39 +273,5 @@
             <p>&copy; 2025 Michael Grigore</p>
         </footer>
     </div>
-    <script>
-        const themeToggleButton = document.getElementById('theme-toggle-button');
-        const body = document.body;
-
-        // Function to apply theme and update button
-        function applyTheme(theme) {
-            if (theme === 'light') {
-                body.classList.add('light-theme');
-                themeToggleButton.textContent = 'Dark Mode';
-            } else {
-                body.classList.remove('light-theme');
-                themeToggleButton.textContent = 'White Mode';
-            }
-        }
-
-        // On page load, check localStorage and apply saved theme
-        const savedTheme = localStorage.getItem('themePreference');
-        if (savedTheme) {
-            applyTheme(savedTheme);
-        } else {
-            applyTheme('dark'); // Default to dark theme if nothing is saved
-        }
-
-        themeToggleButton.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            if (body.classList.contains('light-theme')) {
-                localStorage.setItem('themePreference', 'light');
-                themeToggleButton.textContent = 'Dark Mode'; // Ensure button text is updated
-            } else {
-                localStorage.setItem('themePreference', 'dark');
-                themeToggleButton.textContent = 'White Mode'; // Ensure button text is updated
-            }
-        });
-    </script>
 </body>
 </html>
