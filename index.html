@@ -55,9 +55,7 @@
             text-decoration: none;
             display: inline-block;
             vertical-align: middle;
-        }
-        header .links a:not(.portfolio-button) {
-            line-height: 0;
+            line-height: 0; /* for icon vertical alignment */
         }
         header .links a:hover {
             color: #ffffff;
@@ -67,22 +65,6 @@
             height: 24px;
             fill: currentColor;
             vertical-align: middle;
-        }
-        header .links a.portfolio-button {
-            padding: 6px 12px;
-            background-color: #333;
-            color: #e0e0e0;
-            border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 500;
-            line-height: 1.2;
-            text-decoration: none;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-        header .links a.portfolio-button:hover {
-            background-color: #555;
-            color: #ffffff;
-            text-decoration: none;
         }
         h2 {
             color: #ffffff;
@@ -207,8 +189,6 @@
                 <p>I'm interested in reactive systems, distributed computing, and building products that help developers build better products. I also know way too much about VB and perf tools.</p>
             </div>
             <div class="links">
-                <a href="https://mihaaaailai.github.io/Mihai.Grigore/" target="_blank" rel="noopener noreferrer" class="portfolio-button" title="Portfolio">Portfolio</a>
-                <a href="https://mihaaaailai.github.io/aboutme/" target="_blank" rel="noopener noreferrer" class="portfolio-button" title="About Me">About Me</a>
                 <a href="https://www.linkedin.com/in/mihai-grigore-ubi/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn profile">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-labelledby="linkedInIconTitle">
                         <title id="linkedInIconTitle">LinkedIn</title>
