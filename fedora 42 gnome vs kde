@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fedora 42: KDE vs GNOME – A Personal Reflection - Michael Grigore</title>
+    <style>
+        /* Basic CSS Styles - Dark Theme */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        a {
+            color: #88aaff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Content Styles */
+        .article-content {
+            padding: 20px 0;
+            margin-top: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .article-content h1 {
+            color: #ffffff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.3em;
+            margin-top: 0;
+            margin-bottom: 1em;
+            font-size: 1.8em;
+        }
+        .article-content h2 {
+            color: #ffffff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.3em;
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            font-size: 1.4em;
+        }
+        .article-content p {
+            margin-bottom: 1em;
+            color: #aaaaaa;
+        }
+        .back-link {
+            display: block;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+            color: #bbbbbb;
+        }
+        .back-link:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Main Page</a>
+
+        <div class="article-content">
+            <h1>Fedora 42: KDE vs GNOME – A Personal Reflection</h1>
+            <p><em>Jul 27, 2025</em></p>
+
+            <p>When I try to decide between Fedora 42 with KDE and Fedora 42 with Gnome, I feel torn between two completely different philosophies of how a desktop should work. I’ve spent quite a bit of time with both, and I always end up reaching the same conclusion: the choice isn’t really about which one is objectively “better,” but about how I want to interact with my desktop every single day.</p>
+
+            <h2>GNOME on Fedora 42</h2>
+            <p>With Gnome on Fedora 42, I immediately get this sense of consistency and simplicity. Everything feels carefully arranged to just work, without me having to tweak or adjust anything. It genuinely looks cleaner in many small details, and system integration is often better out of the box. Fedora makes Gnome shine by giving it fast access to new technologies – systemd, flatpak, security portals – all of it works seamlessly. When I just want something that runs smoothly and doesn’t get in my way, Gnome feels like using an iPhone: streamlined, opinionated, and designed for the majority of users. If I didn’t care about customizations, I’d leave it exactly as it is and be perfectly fine.</p>
+
+            <h2>KDE on Fedora 42</h2>
+            <p>But I’m not that kind of user. Every time I return to KDE on Fedora 42, it feels like coming home. It’s like reclaiming the freedom to build my workspace exactly how I want it. I love being able to fine-tune power management, have virtual desktops remember all my open windows after a restart, or customize every tiny detail in Dolphin. Krunner remains one of the best tools I’ve ever used – a simple Alt-Space and I can search files, launch apps, calculate, or even switch between windows without ever taking my hands off the keyboard. In Gnome, I simply don’t get that, or if I do, it’s through extensions that aren’t always stable or guaranteed to work with every new release.</p>
+            <p>KDE feels faster to me, not because it uses fewer resources (though Plasma has become impressively lightweight), but because I can make it work the way my brain works. That said, it’s not perfect. Integration with some modern services, like fingerprint authentication or transparent network share access via gvfs, is still clunky. I need little workarounds – like using Nautilus or Nemo only for network shares – while keeping the rest of my system purely KDE.</p>
+
+            <h2>Conclusion</h2>
+            <p>So, if you ask me, Fedora 42 with Gnome is the right choice if you want something that just works, clean and consistent, with no extra effort. Fedora 42 with KDE is the choice if you want to shape your desktop to fit you, to make it truly personal, even if that means dealing with a few quirks along the way. Personally, I keep coming back to KDE. Gnome is great, and every now and then I give it another chance, but no matter how polished it is, it never feels like my desktop. It feels like the desktop someone else designed for me.</p>
+        </div>
+
+        <footer style="text-align: center; margin-top: 60px; font-size: 0.9em; color: #777;">
+            <p>&copy; 2025 Michael Grigore</p>
+        </footer>
+    </div>
+</body>
+</html>
