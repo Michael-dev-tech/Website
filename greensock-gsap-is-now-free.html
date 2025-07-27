@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenSock’s GSAP Is Now Free for All! - Michael Grigore</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>GreenSock's GSAP Is Now Free for Everyone - Michael Grigore</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -19,15 +18,24 @@
             margin: 40px auto;
             padding: 20px;
         }
+        .back-link {
+            display: block;
+            margin-top: 40px;
+            color: #bbbbbb;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #ffffff;
+        }
         h1 {
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 1.8em;
         }
         h2 {
             color: #ffffff;
             margin-top: 30px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 1.4em;
             border-bottom: 1px solid #444;
             padding-bottom: 5px;
@@ -36,14 +44,6 @@
             margin-bottom: 15px;
             color: #aaaaaa;
         }
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            color: #aaaaaa;
-        }
-        li {
-            margin-bottom: 5px;
-        }
         a {
             color: #88aaff;
             text-decoration: none;
@@ -51,51 +51,42 @@
         a:hover {
             text-decoration: underline;
         }
-        .back-link {
-            display: block;
-            margin-top: 40px;
-            color: #bbbbbb;
+        code {
+            background-color: #111111;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #c0c0c0;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #111111;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>GreenSock’s GSAP Is Now Completely Free—Here’s Why It Matters</h1>
-        <p><em>Posted: May 13, 2025</em></p>
+        <h1>GreenSock’s GSAP Is Now Completely Free—Time to Celebrate!</h1>
+        <p><em>May 13, 2025</em></p>
 
-        <p>Big news for web animators and front-end developers: the GreenSock Animation Platform (GSAP), long regarded as the industry’s go-to toolkit for performant, cross-browser animations, has just gone fully open-source and free for all uses. Whether you’re crafting slick UI transitions, interactive infographics, or game-like experiences, GSAP’s powerful API is now unlocked without any license fees.</p>
+        <p>You might have seen the buzz floating around: GSAP, the animation platform many of us rely on, just dropped its paywall. That’s right, the core engine and all the goodies—ScrollTrigger, Draggable, MotionPath—are now MIT-licensed. No more license fees, no more “Business Green” tier holding back your next big animation idea.</p>
 
-        <h2>What Changed?</h2>
-        <ul>
-            <li><strong>Full Open-Source Release:</strong> The core GSAP engine and all official plugins (ScrollTrigger, Draggable, MotionPath, etc.) have been relicensed under the permissive MIT license.</li>
-            <li><strong>No More “Business Green” Plan:</strong> Previously, advanced features and plugins required a paid “Business Green” license. That paywall is gone—everything is free for personal, commercial, and enterprise use.</li>
-            <li><strong>Community-Driven Roadmap:</strong> GreenSock will now accept proposals, pull requests, and plugin ideas directly from the community on GitHub, accelerating innovation and transparency.</li>
-        </ul>
+        <h2>Lights, Camera, Open Source</h2>
+        <p>For years GSAP sat quietly at the heart of countless smooth transitions, interactive infographics, and web-based games. Now, it’s yours to fork, tweak, and even contribute back. GreenSock’s GitHub repo is wide open, ready for pull requests, feature proposals, or just a fresh pair of eyes on the docs.</p>
 
-        <h2>Why It’s a Big Deal</h2>
-        <p>GSAP has powered animations on countless high-profile sites and apps—its robustness, timing precision, and plugin ecosystem set it apart. Opening it up means:</p>
-        <ul>
-            <li><strong>Lower Barrier to Entry:</strong> Students, hobbyists, and startups can dive in without worrying about license costs.</li>
-            <li><strong>Wider Adoption:</strong> Agencies and freelancers can include GSAP in client projects of any scale without legal headaches.</li>
-            <li><strong>Faster Feature Development:</strong> Community contribution will drive new plugins, performance tweaks, and integrations at an even faster pace.</li>
-        </ul>
+        <h2>Why This Rocks for Everyone</h2>
+        <p>If you’re a student or a hobbyist, you can dive in without worrying about licensing. Agencies and freelancers can pitch GSAP-powered projects to clients without legal gymnastics. And open-source contributors? You get to steer the roadmap. It’s a win-win, all around.</p>
 
-        <h2>How to Get Started</h2>
-        <ol>
-            <li>Visit the <a href="https://github.com/greensock/GSAP" target="_blank" rel="noopener noreferrer">official GSAP GitHub repo</a> and clone or download the code.</li>
-            <li>Include GSAP in your project via npm: <code>npm install gsap</code> or directly via CDN:  
-                <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"&gt;&lt;/script&gt;</code></pre>
-            </li>
-            <li>Check out the updated docs and tutorials at <a href="https://greensock.com/docs/" target="_blank" rel="noopener noreferrer">greensock.com/docs</a>.</li>
-            <li>Explore sample projects and plugin demos in the GitHub repo’s `/examples` folder.</li>
-        </ol>
+        <h2>Getting Started in a Snap</h2>
+        <p>Jump over to the <a href="https://github.com/greensock/GSAP" target="_blank" rel="noopener noreferrer">official GSAP GitHub</a>, clone the repo or grab the ZIP. If you’re on npm, just <code>npm install gsap</code>. Prefer a quick include? Paste:</p>
+        <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"&gt;&lt;/script&gt;</code></pre>
+        <p>Then head to <a href="https://greensock.com/docs/" target="_blank" rel="noopener noreferrer">greensock.com/docs</a> to see what’s new and how you can plug it into your project.</p>
 
-        <h2>Community Reactions</h2>
-        <p>Developers across Twitter and Dev.to are celebrating. From agencies that budgeted licensing fees to indie coders who’ve long championed open-source, the sentiment is clear: GSAP’s liberation has just leveled up the web animation game for everyone.</p>
-
-        <p>If you’ve never tried GSAP before, now’s the perfect time to experiment. And if you’re already a power user, consider contributing—whether it’s new plugin ideas, performance patches, or enhanced documentation.</p>
-
-        <p><em>Read the full announcement on the GreenSock blog: <a href="https://greensock.com/blog/gsap-is-now-mit" target="_blank" rel="noopener noreferrer">https://greensock.com/blog/gsap-is-now-mit</a></em></p>
+        <h2>What’s Next?</h2>
+        <p>Keep an eye on the GSAP repo’s <code>/examples</code> folder—community demos and tutorials are already popping up. If inspiration strikes, fork a plugin or propose that feature you’ve been dreaming of. With open arms and open code, the GSAP team is looking to the community to help write the next chapter.</p>
 
         <a href="index.html" class="back-link">&larr; Back to Main Page</a>
     </div>
