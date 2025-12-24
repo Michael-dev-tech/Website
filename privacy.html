@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael - Privacy</title>
+    <style>
+        /* Același CSS ca mai sus */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+        }
+        .container { max-width: 700px; margin: 40px auto; padding: 0; }
+        header, section { margin-bottom: 40px; padding: 0; border: none; }
+        header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; }
+        header .intro h1 { margin: 0 0 5px 0; font-size: 1.5em; color: #ffffff; }
+        header .intro p { margin: 0; color: #777; font-size: 0.9em; }
+        h2 { color: #ffffff; margin-bottom: 20px; font-size: 1.2em; border-bottom: 1px solid #444; padding-bottom: 10px; }
+        
+        #thoughts article {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 15px;
+        }
+        #thoughts article:last-child { margin-bottom: 0; }
+        #thoughts article h3 { margin: 0; color: #e0e0e0; }
+        #thoughts article a { color: inherit; text-decoration: none; }
+        #thoughts article a:hover h3 { text-decoration: underline; color: #ffffff; }
+        #thoughts article span { font-family: monospace; font-size: 0.9em; color: #777; white-space: nowrap; margin-left: 15px; }
 
+        .back-link { display: inline-block; margin-bottom: 20px; color: #bbbbbb; text-decoration: none; }
+        .back-link:hover { color: #ffffff; text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            #thoughts article { flex-direction: column; align-items: flex-start; }
+            #thoughts article span { margin-top: 5px; margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        
+        <header>
+            <div class="intro">
+                <h1>Privacy & Security</h1>
+                <p>Notes on digital surveillance, anonymity, and regaining control.</p>
+            </div>
+        </header>
+
+        <section id="thoughts">
+            <article>
+                <a href="teams-snitching.html"><h3>Teams will soon tell your boss where you are</h3></a>
+                <span>Oct 25, 2025 &nearr;</span>
+            </article>
+
+            <article>
+                <a href="windows-10-eol-linux.html"><h3>Windows 10 is Dead. Time for Linux?</h3></a>
+                <span>Oct 20, 2025 &nearr;</span>
+            </article>
+
+            <article>
+                <a href="tor-node-home.html"><h3>How to Run a Tor Relay at Home</h3></a>
+                <span>Jul 19, 2025 &nearr;</span>
+            </article>
+        </section>
+
+        <footer style="text-align: center; margin-top: 60px; font-size: 0.9em; color: #777;">
+            <p>&copy; 2025 Michael Grigore</p>
+        </footer>
+    </div>
+</body>
+</html>
