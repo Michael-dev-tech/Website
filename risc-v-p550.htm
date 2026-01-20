@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The "Fastest" RISC-V Board</title>
+    <style>
+        /* Basic CSS Styles - Dark Theme */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h1, h2 {
+            color: #ffffff;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #bbbbbb;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        .bold-text {
+            font-weight: bold;
+            color: #fff;
+        }
+        /* Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            margin-bottom: 20px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="random.html" class="back-link">&larr; Back to Random</a>
+        
+        <h1>The "Fastest" RISC-V Board is Here. It’s $400 and Slow.</h1>
+        <p><em>January 20, 2026</em></p>
+
+        <p>Jeff Geerling recently got his hands on the <strong>SiFive HiFive Premier P550</strong>. The marketing pitch? It is the "fastest RISC-V development board on the market today." The reality? It’s a $400 computer that barely keeps up with a Raspberry Pi 3.</p>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/1565YYsFmd4?start=74" allowfullscreen></iframe>
+        </div>
+
+        <p>Don't get me wrong, having an open instruction set (ISA) architecture that isn't owned by Intel or ARM is critical for the future of computing. But looking at the state of the hardware today, that future is still a long way off.</p>
+        
+        <p>Here are the "highlights" from Jeff's testing:</p>
+        <ul>
+            <li><strong>Price:</strong> ~$400. For comparison, a Raspberry Pi 5 is $60.</li>
+            <li><strong>Performance:</strong> It is twice as fast as the previous RISC-V boards, which sounds great until you realize those boards were painfully slow. It struggles to beat a decade-old ARM chip.</li>
+            <li><strong>Gaming:</strong> He managed to run <em>The Witcher 3</em>... at <strong>2 frames per second</strong>. Playable? No. An engineering miracle that it runs at all? Yes.</li>
+            <li><strong>AI Hype:</strong> It has a 20 TOPS NPU (Neural Processing Unit), but the software support is non-existent. Running Llama locally on the CPU gets you 0.24 tokens per second. You could hand-write the response faster.</li>
+        </ul>
+
+        <p>This board is for kernel developers and compiler engineers, not for us. It’s a proof of concept that you can buy.</p>
+
+        <p>If you are excited about RISC-V, be excited about the software support closing the gap. But don't throw your wallet at this unless you really, really love debugging Linux kernel panics.</p>
+
+        <p>Watch the full review <a href="https://www.youtube.com/watch?v=1565YYsFmd4" target="_blank">here</a>.</p>
+
+    </div>
+</body>
+</html>
