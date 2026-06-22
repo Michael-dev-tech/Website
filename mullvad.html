@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mullvad vs The Great Firewall</title>
+    <style>
+        /* Basic CSS Styles - Dark Theme */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        h1, h2 {
+            color: #ffffff;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            color: #aaaaaa;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #bbbbbb;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        .bold-text {
+            font-weight: bold;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Home</a>
+        
+        <h1>Mullvad vs The Great Firewall: How to Hide an Elephant in an HTTPS Connection</h1>
+        <p><em>June 22, 2026</em></p>
+
+        <p>In case you haven't been paying attention to what's going on behind the Digital Iron Curtain, the Great Firewall of China (GFW) has become an absolute monster. They've deployed AI-trained Deep Packet Inspection (DPI) systems that read your data packets before you can even blink. If you try to fire up a classic WireGuard VPN connection on port 51820, you are detected and blocked in under 3 seconds. Period.</p>
+
+        <p>Enter our favorite paranoids over at <strong>Mullvad</strong>. The Swedes who refuse to ask for your email address and literally let you mail them envelopes of cash to pay for your subscription. They didn't just resign themselves to losing the Asian market; they came up with an absolutely beautiful technical middle finger.</p>
+
+        <h2>QUIC Obfuscation: Checkmate to Censorship?</h2>
+       
+        <p>Mullvad has leaned heavily into QUIC obfuscation (based on HTTP/3). In short, skipping the overly academic jargon: they take your VPN traffic—which normally draws as much attention as a police car with its sirens blazing—and stuff it inside fake HTTPS traffic.</p>
+
+        <p>From the outside, to the Chinese government's routers, your connection looks exactly like mundane, secure web browsing. <strong>Why is this a stroke of genius?</strong> Because the only way Chinese authorities could block this VPN traffic would be to block <em>all</em> HTTPS traffic using HTTP/3. If they do that, they instantly cripple their own banking, e-commerce, and state infrastructure.</p>
+
+        <h2>The Reality on the Ground: Does it work flawlessly?</h2>
+        
+        <p>Let's not kid ourselves. Anyone selling you a VPN who promises "100% guaranteed up-time in China" is lying to your face. Here is what to actually expect if you go there:</p>
+
+        <ul>
+            <li><strong>The Settings Juggling Act:</strong> The GFW doesn't need hard proof to block you. If a connection simply "looks suspicious" because it stays open too long or transfers too much data to an unknown IP, they proactively kill it. You'll be playing with manual settings, jumping to Shadowsocks, and constantly switching servers.</li>
+            <li><strong>Mediocre Speeds:</strong> Funneling your traffic through all those layers of obfuscation (like MultiHop or Bridge Mode) will give you a stable connection, but it'll be sluggish. Forget about streaming 4K Netflix.</li>
+        </ul>
+
+        <p>All in all, the cat-and-mouse game continues. But it is fascinating (and incredibly amusing) to watch a tiny company charging €5 a month successfully hold the line against a multi-billion dollar state surveillance apparatus, using the exact same protocols that hold their economy together.</p>
+
+    </div>
+</body>
+</html>
